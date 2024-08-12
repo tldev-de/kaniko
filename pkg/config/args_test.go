@@ -30,6 +30,24 @@ func TestMultiArg_Set_shouldAppendValue(t *testing.T) {
 	}
 }
 
+func TestMultiArg_SetSlice_shouldAppendValue(t *testing.T) {
+	var arg multiArg
+	arg.SetSlice([]string{"value1", "value2"})
+	if len(arg) != 2 || arg[0] != "value1" {
+		t.Error("Fist value was not appended")
+	}
+	if len(arg) != 2 || arg[1] != "value2" {
+		t.Error("Fist value was not appended")
+	}
+	arg.SetSlice([]string{"value3", "value4"})
+	if len(arg) != 4 || arg[2] != "value3" {
+		t.Error("Second value was not appended")
+	}
+	if len(arg) != 4 || arg[3] != "value4" {
+		t.Error("Second value was not appended")
+	}
+}
+
 func Test_KeyValueArg_Set_shouldSplitArgument(t *testing.T) {
 	arg := make(keyValueArg)
 	arg.Set("key=value")

@@ -1037,7 +1037,7 @@ multiple mirrors. If an image is not found on the first mirror, Kaniko will try
 the next mirror(s), and at the end fallback on the default registry.
 
 Mirror can also be defined through `KANIKO_REGISTRY_MIRROR` environment
-variable.
+variable. Multiple mirrors can be set by separating them with a space.
 
 Expected format is `mirror.gcr.io` or `mirror.gcr.io/path` for example.
 

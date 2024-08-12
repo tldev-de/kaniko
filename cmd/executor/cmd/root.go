@@ -70,7 +70,8 @@ func validateFlags() {
 
 	// Allow setting --registry-mirror using an environment variable.
 	if val, ok := os.LookupEnv("KANIKO_REGISTRY_MIRROR"); ok {
-		opts.RegistryMirrors.Set(val)
+		valSlice := strings.Split(val, " ")
+		opts.RegistryMirrors.SetSlice(valSlice)
 	}
 
 	// Allow setting --no-push using an environment variable.

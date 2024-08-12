@@ -45,6 +45,13 @@ func (b *multiArg) Type() string {
 	return "multi-arg type"
 }
 
+// This method allows to add a slice to an existing multiArg
+func (b *multiArg) SetSlice(value []string) error {
+	logrus.Debugf("Appending slice to multi args %s", value)
+	*b = append(*b, value...)
+	return nil
+}
+
 func (b *multiArg) Contains(v string) bool {
 	for _, s := range *b {
 		if s == v {
